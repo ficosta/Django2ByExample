@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/cabox/workspace/blog_livro/venv"
+VIRTUAL_ENV="/home/cabox/workspace/Django2ByExample/blog_livro/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

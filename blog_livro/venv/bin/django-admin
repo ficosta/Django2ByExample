@@ -1,4 +1,4 @@
-#!/home/cabox/workspace/blog_livro/venv/bin/python3
+#!/home/cabox/workspace/Django2ByExample/blog_livro/venv/bin/python3
 
 # -*- coding: utf-8 -*-
 import re

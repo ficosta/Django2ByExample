@@ -1,4 +1,4 @@
-#!/home/cabox/workspace/blog_livro/venv/bin/python
+#!/home/cabox/workspace/Django2ByExample/blog_livro/venv/bin/python
 
 import sys
 import getopt

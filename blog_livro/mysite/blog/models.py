@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from taggit.managers import TaggableManager
 
 # Create your models here.
 from django.utils import timezone
@@ -14,7 +15,7 @@ class Post(models.Model):
   STATUS_CHOICES = (
     ('draft', 'Rascunho'),
     ('published', 'Publicado'),)
-	
+		
   title = models.CharField(max_length=250)
   slug = models.SlugField(max_length=250, 
                          unique_for_date='publish')
@@ -27,6 +28,7 @@ class Post(models.Model):
   status = models.CharField(max_length=10,
                            choices=STATUS_CHOICES,
                            default='draft')
+  tags = TaggableManager()
   objects = models.Manager() # The default manager.
   published = PublishedManager() # Our custom manager.
     

@@ -6,10 +6,9 @@ window.onload = function() {
   // Buttons
   var playButton = document.getElementById("play-pause");
   var muteButton = document.getElementById("mute");
-  var fullScreenButton = document.getElementById("full-screen");
 
   // Sliders
-  var seekBar = document.getElementById("seek-bar");
+  //var seekBar = document.getElementById("seek-bar");
   var volumeBar = document.getElementById("volume-bar");
 
 
@@ -20,24 +19,13 @@ playButton.addEventListener("click", function() {
     video.play();
 
     // Update the button text to 'Pause'
-    playButton.innerHTML = "<i class=\"nc-icon nc-button-pause\"></i>";
+    playButton.innerHTML = "<i class=\"fas fa-pause\"></i>";
   } else {
     // Pause the video
     video.pause();
 
     // Update the button text to 'Play'
-    playButton.innerHTML = "<i class=\"nc-icon nc-button-play\"></i>";
-  }
-});
-
-// Event listener for the full-screen button
-fullScreenButton.addEventListener("click", function() {
-  if (video.requestFullscreen) {
-    video.requestFullscreen();
-  } else if (video.mozRequestFullScreen) {
-    video.mozRequestFullScreen(); // Firefox
-  } else if (video.webkitRequestFullscreen) {
-    video.webkitRequestFullscreen(); // Chrome and Safari
+    playButton.innerHTML = "<i class=\"fas fa-play\"></i>";
   }
 });
 
@@ -51,13 +39,13 @@ seekBar.addEventListener("change", function() {
 });
 
 // Update the seek bar as the video plays
-video.addEventListener("timeupdate", function() {
+//video.addEventListener("timeupdate", function() {
   // Calculate the slider value
-  var value = (100 / video.duration) * video.currentTime;
+//  var value = (100 / video.duration) * video.currentTime;
 
   // Update the slider value
-  seekBar.value = value;
-});
+//  seekBar.value = value;
+//});
 
 // Pause the video when the slider handle is being dragged
 seekBar.addEventListener("mousedown", function() {

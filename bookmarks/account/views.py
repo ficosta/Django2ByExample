@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
-
 from .forms import LoginForm
+
 # Create your views here.
 
 def user_login(request):
@@ -12,24 +11,16 @@ def user_login(request):
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(request,
-                               username=cd['username'],
-                               password=cd['password'])
-
+                                username = cd['username'],
+                                password=cd['password'])
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated succesfully')
+                    return HttpResponse('Sucesso!')
                 else:
-                    return HttpResponse('Disabled account')
+                    return HttpResponse('ContaSuspensa')
             else:
-                return HttpResponse('Invalid loging')
-
+                return HttpResponse('Login Invalido')
     else:
         form = LoginForm()
-    return render(request, 'account/login.html', {'form':form})
-
-@login_required
-def dashboard(request):
-    return render(request,
-        'account/dashboard.html',
-        {'section':'dashboard'})
+    return render(request, 'account/login.html', {'form': form})
